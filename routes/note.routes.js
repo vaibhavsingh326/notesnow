@@ -30,7 +30,7 @@ noteRouter.patch("/:id",auth, async (req, res) => {
     try {
         const note = await NoteModel.findOne({ _id: id });
         if(note.userID===req.body.userID){
-            await NoteModel.findByIdAndUpdate({ _id: id },{...req.body});
+            await NoteModel.findByIdAndUpdate({ _id: id },req.body);
         res.send({"msg":`note with note id ${id} has been updated`})
         }else{
             res.send({"msg":"you are not authorized"})
