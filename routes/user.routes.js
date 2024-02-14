@@ -14,7 +14,7 @@ userRouter.post("/register",  (req, res) => {
             await user.save();
             res.status(200).send({"msg":"new user has been registered"})  
             }else{
-                res.send({"msg":"hash is missing",err,"masa":process.env.SALT_ROUNDS})
+                res.send({"msg":"hash is missing",err})
             }
 
         })
