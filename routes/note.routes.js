@@ -26,7 +26,7 @@ noteRouter.post("/",auth, async (req, res) => {
     
 })
 noteRouter.patch("/:id",auth, async (req, res) => {
-    const { id } = req.params;
+    const  id  = req.params.id;
     try {
         const note = await NoteModel.findOne({ _id: id });
         if(note.userID===req.body.userID){
