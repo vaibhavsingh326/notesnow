@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 userRouter.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        bcrypt.hash(password,+process.env.SALT_ROUNDS,async(err,hash)=>{
+        bcrypt.hash(password,process.env.SALT_ROUNDS,async(err,hash)=>{
             if(hash){
             const user = new UserModel({username, email, password:hash});
             await user.save();
