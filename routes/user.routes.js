@@ -5,7 +5,7 @@ const { UserModel } = require("../models/user.model.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-userRouter.post("/register", async (req, res) => {
+userRouter.post("/register",  (req, res) => {
     const { username, email, password } = req.body;
     try {
         bcrypt.hash(password,Number(process.env.SALT_ROUNDS),async(err,hash)=>{
